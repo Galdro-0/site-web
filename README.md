@@ -70,8 +70,9 @@ node server.js       # ou nodemon server.js
 cd ..
 npm install
 npm run dev
+
 ✨ Auteurs
 Développé avec ❤️ par Galdro-0 (Othmane Karim) — Étudiant en IA & Cybersécurité à l’ENSA.
 Développé avec ❤️ par  (hamza elmorabit) — Étudiant en IA & Cybersécurité à l’ENSA.
-Développé avec ❤️ par Galdro-0 (zaim mohamed) — Étudiant en IA & Cybersécurité à l’ENSA.
-Développé avec ❤️ par Galdro-0 (zinelabidine chaouali) — Étudiant en IA & Cybersécurité à l’ENSA.
+Développé avec ❤️ par  (zaim mohamed) — Étudiant en IA & Cybersécurité à l’ENSA.
+Développé avec ❤️ par  (zinelabidine chaouali) — Étudiant en IA & Cybersécurité à l’ENSA.
