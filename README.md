@@ -1,12 +1,77 @@
-# React + Vite
+💻 ENSA Web Platform
+Bienvenue sur le dépôt officiel de la plateforme web développée pour l'ENSA Beni Mellal. Ce projet complet comprend un backend Node.js/Express et un frontend React, et propose une interface moderne de gestion pour les étudiants, enseignants et administrateurs.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📁 Structure du projet
+csharp
+Copier
+Modifier
+.
+├── backend/        # Serveur Node.js avec Express, MongoDB, API REST
+├── src/            # Frontend React : pages, composants, styles
+├── public/         # Fichiers publics utilisés dans l'app
+├── index.html      # Point d’entrée HTML
+├── package.json    # Dépendances frontend
+└── README.md       # Documentation du projet
+🚀 Fonctionnalités principales
+👨‍🎓 Frontend (React)
+Authentification admin et étudiant
 
-Currently, two official plugins are available:
+Dashboard administrateur
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Gestion des emplois du temps, projets, événements, examens
 
-## Expanding the ESLint configuration
+Interface responsive et conviviale
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔧 Backend (Node.js & Express)
+API REST sécurisée avec JWT
+
+Contrôleurs et routes bien organisés (auth, admin, projets, emplois du temps…)
+
+Connexion à une base MongoDB
+
+Middleware d’authentification
+
+⚙️ Technologies utilisées
+Frontend
+React
+
+Vite
+
+CSS Modules / fichiers .css
+
+React Router
+
+Backend
+Node.js
+
+Express.js
+
+MongoDB avec Mongoose
+
+JSON Web Tokens (JWT)
+
+Dotenv
+
+📦 Installation
+bash
+Copier
+Modifier
+# Clone du projet
+git clone https://github.com/Galdro-0/site-web.git
+cd site-web
+
+# Installation du backend
+cd backend
+npm install
+cp .env.example .env # Ajoutez vos variables d'environnement
+node server.js       # ou nodemon server.js
+
+# Installation du frontend
+cd ..
+npm install
+npm run dev
+✨ Auteurs
+Développé avec ❤️ par Galdro-0 (Othmane Karim) — Étudiant en IA & Cybersécurité à l’ENSA.
+Développé avec ❤️ par  (hamza elmorabit) — Étudiant en IA & Cybersécurité à l’ENSA.
+Développé avec ❤️ par Galdro-0 (zaim mohamed) — Étudiant en IA & Cybersécurité à l’ENSA.
+Développé avec ❤️ par Galdro-0 (zinelabidine chaouali) — Étudiant en IA & Cybersécurité à l’ENSA.
