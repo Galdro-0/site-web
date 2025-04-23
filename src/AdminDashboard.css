@@ -1,0 +1,270 @@
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-tabs button {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+}
+
+.admin-tabs button.active {
+  border-bottom: 3px solid #2563eb;
+  font-weight: bold;
+}
+
+.admin-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Table styles */
+.emplois-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.emplois-table th, .emplois-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.emplois-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.emplois-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.view-btn, .delete-btn {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Form styles */
+.emploi-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.students-select {
+  height: 150px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.radio-label input[type="radio"] {
+  margin: 0;
+}
+
+.jour-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.creneau-row {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.add-btn, .remove-btn, .submit-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.remove-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Styles pour la gestion des étudiants */
+.manage-etudiants {
+  padding: 20px;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.etudiant-form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.etudiant-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.etudiants-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.etudiants-table th, .etudiants-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.etudiants-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.etudiants-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-btn {
+  background-color: #f59e0b;
+  color: white;
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: white;
+}
