@@ -68,9 +68,13 @@ const getEmploisPersonnalises = async (req, res) => {
   try {
     const emploisPersonnalises = await EmploiDuTemps.find({ estPersonnalise: true })
       .populate('creePar', 'nom prenom')
+<<<<<<< HEAD
       .populate('etudiants', 'nom prenom')
       .populate('emplois.creneaux.professeur', 'nom prenom specialite')
       .populate('emplois.creneaux.module', 'code nom');
+=======
+      .populate('etudiants', 'nom prenom');
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
     res.json(emploisPersonnalises);
   } catch (error) {
@@ -85,9 +89,13 @@ const getEmploiPersonnaliseById = async (req, res) => {
   try {
     const emploiPersonnalise = await EmploiDuTemps.findById(req.params.id)
       .populate('creePar', 'nom prenom')
+<<<<<<< HEAD
       .populate('etudiants', 'nom prenom')
       .populate('emplois.creneaux.professeur', 'nom prenom specialite')
       .populate('emplois.creneaux.module', 'code nom');
+=======
+      .populate('etudiants', 'nom prenom');
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
     if (!emploiPersonnalise) {
       return res.status(404).json({ message: 'Emploi du temps personnalisé non trouvé' });
@@ -153,6 +161,7 @@ const updateEmploiPersonnalise = async (req, res) => {
 // @access  Private (Admin only)
 const deleteEmploiPersonnalise = async (req, res) => {
   try {
+<<<<<<< HEAD
     const { id } = req.params;
     console.log(`Tentative de suppression de l'emploi du temps avec ID: ${id}`);
 
@@ -186,6 +195,18 @@ const deleteEmploiPersonnalise = async (req, res) => {
     res.json({ message: 'Emploi du temps personnalisé supprimé avec succès' });
   } catch (error) {
     console.error(`Erreur lors de la suppression de l'emploi du temps:`, error);
+=======
+    const emploiPersonnalise = await EmploiDuTemps.findById(req.params.id);
+
+    if (!emploiPersonnalise) {
+      return res.status(404).json({ message: 'Emploi du temps personnalisé non trouvé' });
+    }
+
+    await emploiPersonnalise.remove();
+
+    res.json({ message: 'Emploi du temps personnalisé supprimé' });
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(500).json({ message: error.message });
   }
 };
@@ -224,6 +245,7 @@ const getEmploisPersonnalisesEtudiant = async (req, res) => {
         // Emplois pour toute la filière de l'étudiant
         {
           pourTouteFiliere: true,
+<<<<<<< HEAD
           $or: [
             { filiere: { $regex: new RegExp(`^${student.filiere}$`, 'i') } },
             { filiere: 'tous' }
@@ -232,6 +254,10 @@ const getEmploisPersonnalisesEtudiant = async (req, res) => {
             { annee: student.annee },
             { annee: 'tous' }
           ]
+=======
+          filiere: { $in: [student.filiere, 'tous'] },
+          annee: { $in: [student.annee, 'tous'] }
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         }
       ]
     };
@@ -254,6 +280,7 @@ const getEmploisPersonnalisesEtudiant = async (req, res) => {
       });
     });
 
+<<<<<<< HEAD
     // Recherche manuelle pour déboguer
     const emploisPersonnalises = [];
 
@@ -300,6 +327,11 @@ const getEmploisPersonnalisesEtudiant = async (req, res) => {
 
     // Trier par date de création décroissante
     emploisPersonnalises.sort((a, b) => b.createdAt - a.createdAt);
+=======
+    const emploisPersonnalises = await EmploiDuTemps.find(query)
+      .populate('creePar', 'nom prenom')
+      .sort({ createdAt: -1 }); // Tri par date de création décroissante
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
     console.log('Nombre d\'emplois trouvés pour cet étudiant:', emploisPersonnalises.length);
 

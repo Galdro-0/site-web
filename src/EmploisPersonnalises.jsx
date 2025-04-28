@@ -148,7 +148,11 @@ const EmploisPersonnalises = () => {
         <h2>Emplois du Temps Personnalisés</h2>
         <div className="buttons-container">
           <button className="refresh-btn" onClick={fetchEmploisPersonnalises}>
+<<<<<<< HEAD
             ⟳ Rafraîchir les emplois du temps
+=======
+            Rafraîchir
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           </button>
           <button className="return-btn" onClick={handleReturnToHome}>
             Retour à l'accueil
@@ -158,6 +162,7 @@ const EmploisPersonnalises = () => {
 
       {error && <div className="error-message">{error}</div>}
 
+<<<<<<< HEAD
       <div className="info-message">
         <p>
           <strong>Note:</strong> Si vous ne voyez pas votre emploi du temps après sa création par l'administrateur,
@@ -165,6 +170,8 @@ const EmploisPersonnalises = () => {
         </p>
       </div>
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       {loading ? (
         <p>Chargement...</p>
       ) : selectedEmploi ? (
@@ -201,6 +208,7 @@ const EmploisPersonnalises = () => {
                     {jourEmploi && jourEmploi.creneaux.length > 0 ? (
                       jourEmploi.creneaux.map((cours, index) => (
                         <div key={index} className="cours-card">
+<<<<<<< HEAD
                           <h4>
                             {typeof cours.module === 'object' && cours.module !== null
                               ? `${cours.module.code} - ${cours.module.nom}`
@@ -213,6 +221,12 @@ const EmploisPersonnalises = () => {
                               ? `${cours.professeur.nom} ${cours.professeur.prenom}`
                               : cours.professeur}
                           </p>
+=======
+                          <h4>{cours.module}</h4>
+                          <p className="cours-time">{formatTime(cours.debut)} - {formatTime(cours.fin)}</p>
+                          <p className="cours-location">{cours.salle}</p>
+                          <p className="cours-prof">{cours.professeur}</p>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         </div>
                       ))
                     ) : (

@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+<<<<<<< HEAD
 import Dashboard from "./Dashboard";
+=======
+import Home from "./Home";
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import EmploisDuTemps from "./EmploisDuTemps";
 import PlanningExams from "./PlanningExams";
 import Evenement from "./Evenement";
 import EmploisPersonnalises from "./EmploisPersonnalises";
+<<<<<<< HEAD
 import FormationsInscrites from "./FormationsInscrites";
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import ProjetsDeadlines from "./ProjetsDeadlines";
 import Accueil from "./loginaccueil/components/accueil";
 import AdminLogin from "./AdminLogin";
@@ -83,9 +90,15 @@ function App() {
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <Dashboard />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+                <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+                <Home />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               </div>
             </ProtectedRoute>
           }
@@ -96,7 +109,11 @@ function App() {
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <EmploisDuTemps />
               </div>
@@ -109,7 +126,11 @@ function App() {
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <PlanningExams />
               </div>
@@ -122,7 +143,11 @@ function App() {
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <Evenement />
               </div>
@@ -135,7 +160,11 @@ function App() {
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <EmploisPersonnalises />
               </div>
@@ -144,6 +173,7 @@ function App() {
         />
 
         <Route
+<<<<<<< HEAD
           path="/FormationsInscrites"
           element={
             <ProtectedRoute>
@@ -157,11 +187,17 @@ function App() {
         />
 
         <Route
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           path="/ProjetsDeadlines"
           element={
             <ProtectedRoute>
               <div className="grid-container">
+<<<<<<< HEAD
                 <Header />
+=======
+                <Header OpenSidebar={OpenSidebar} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
                 <ProjetsDeadlines />
               </div>

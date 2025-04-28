@@ -9,9 +9,12 @@ const EmploisDuTemps = () => {
   const [emploiDuTemps, setEmploiDuTemps] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+<<<<<<< HEAD
   const [semaines, setSemaines] = useState([]);
   const [selectedSemaine, setSelectedSemaine] = useState(null);
   const [loadingSemaines, setLoadingSemaines] = useState(false);
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const navigate = useNavigate();
 
   // Récupérer les informations de l'étudiant connecté
@@ -22,6 +25,7 @@ const EmploisDuTemps = () => {
       setMajor(userData.filiere);
       setYear(userData.annee);
       setSubmitted(true);
+<<<<<<< HEAD
 
       // Récupérer les semaines disponibles
       fetchSemainesDisponibles(userData.filiere, userData.annee);
@@ -77,11 +81,20 @@ const EmploisDuTemps = () => {
   };
 
   const fetchEmploiDuTemps = async (filiere, annee, apogee, semaine = null) => {
+=======
+      // Utiliser l'apogée de l'étudiant connecté
+      fetchEmploiDuTemps(userData.filiere, userData.annee, userData.apogee);
+    }
+  }, []);
+
+  const fetchEmploiDuTemps = async (filiere, annee, apogee) => {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     try {
       setLoading(true);
       setError('');
 
       const token = localStorage.getItem('userToken');
+<<<<<<< HEAD
       // Construire l'URL de base
       let url = `http://localhost:5000/api/emplois-du-temps/${filiere}/${annee}`;
 
@@ -94,6 +107,10 @@ const EmploisDuTemps = () => {
       if (params.toString()) {
         url += `?${params.toString()}`;
       }
+=======
+      // Modification de l'URL pour correspondre à votre backend
+      const url = `http://localhost:5000/api/emplois-du-temps/${filiere}/${annee}`;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
       console.log('URL de la requête:', url);
       console.log('Token:', token);
@@ -117,6 +134,7 @@ const EmploisDuTemps = () => {
       const data = await response.json();
       console.log('Données reçues:', data);
 
+<<<<<<< HEAD
       // Vérifier si les données reçues sont un emploi du temps personnalisé
       const isPersonnalise = data.estPersonnalise === true;
       const titre = data.titre || '';
@@ -145,6 +163,18 @@ const EmploisDuTemps = () => {
           titre: ''
         };
       }
+=======
+      // Transformer les données pour correspondre à la structure attendue
+      const formattedData = {
+        emplois: [
+          { jour: 'Lundi', creneaux: data.lundi || [] },
+          { jour: 'Mardi', creneaux: data.mardi || [] },
+          { jour: 'Mercredi', creneaux: data.mercredi || [] },
+          { jour: 'Jeudi', creneaux: data.jeudi || [] },
+          { jour: 'Vendredi', creneaux: data.vendredi || [] }
+        ]
+      };
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
       setEmploiDuTemps(formattedData);
     } catch (err) {
@@ -161,6 +191,7 @@ const EmploisDuTemps = () => {
       setSubmitted(true);
       const userData = JSON.parse(localStorage.getItem('userData'));
       console.log('Soumission avec données:', { major, year, apogee: userData.apogee });
+<<<<<<< HEAD
 
       // Récupérer les semaines disponibles d'abord
       fetchSemainesDisponibles(major, year);
@@ -177,11 +208,18 @@ const EmploisDuTemps = () => {
     fetchEmploiDuTemps(major, year, userData.apogee, semaine);
   };
 
+=======
+      fetchEmploiDuTemps(major, year, userData.apogee);
+    }
+  };
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // Fonction pour formater l'heure
   const formatTime = (time) => {
     return time.substring(0, 5); // Format HH:MM
   };
 
+<<<<<<< HEAD
   // Fonction pour calculer les dates de début et de fin d'une semaine
   const getWeekDates = (weekNumber) => {
     if (!weekNumber) return { debut: null, fin: null };
@@ -225,6 +263,8 @@ const EmploisDuTemps = () => {
     };
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // Fonction pour retourner à la page d'accueil de l'application
   const handleReturnToHome = () => {
     navigate('/');
@@ -242,11 +282,14 @@ const EmploisDuTemps = () => {
       <div className="header-actions">
         <h2>Emplois du temps</h2>
         <div className="buttons-container">
+<<<<<<< HEAD
           {submitted && (
             <button className="refresh-btn" onClick={() => fetchSemainesDisponibles(major, year)}>
               ⟳ Rafraîchir
             </button>
           )}
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           <button className="return-btn" onClick={handleReturnToHome}>
             Retour à l'accueil
           </button>
@@ -258,6 +301,7 @@ const EmploisDuTemps = () => {
 
       <p>Consultez votre emploi du temps hebdomadaire.</p>
 
+<<<<<<< HEAD
       {/* Sélecteur de semaine avec dates */}
       {submitted && semaines.length > 0 && (
         <div className="semaine-selector">
@@ -294,6 +338,8 @@ const EmploisDuTemps = () => {
         </p>
       </div>
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       {!submitted ? (
         <form onSubmit={handleSubmit} className="emplois-form">
           <div className="form-group">
@@ -334,6 +380,7 @@ const EmploisDuTemps = () => {
               </ul>
             </div>
           ) : emploiDuTemps ? (
+<<<<<<< HEAD
             <div>
               {emploiDuTemps.estPersonnalise && (
                 <div className="info-message">
@@ -359,6 +406,9 @@ const EmploisDuTemps = () => {
               )}
 
               <div className="emplois-grid">
+=======
+            <div className="emplois-grid">
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               {['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'].map((jour) => {
                 const jourEmploi = emploiDuTemps.emplois.find(e => e.jour === jour);
                 return (
@@ -368,6 +418,7 @@ const EmploisDuTemps = () => {
                       {jourEmploi ? (
                         jourEmploi.creneaux.map((cours, index) => (
                           <div key={index} className="cours-card">
+<<<<<<< HEAD
                             <h4>
                               {typeof cours.module === 'object' && cours.module !== null
                                 ? `${cours.module.code} - ${cours.module.nom}`
@@ -380,6 +431,12 @@ const EmploisDuTemps = () => {
                                 ? `${cours.professeur.nom} ${cours.professeur.prenom}`
                                 : cours.professeur}
                             </p>
+=======
+                            <h4>{cours.module}</h4>
+                            <p className="cours-time">{formatTime(cours.debut)} - {formatTime(cours.fin)}</p>
+                            <p className="cours-location">{cours.salle}</p>
+                            <p className="cours-prof">{cours.professeur}</p>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                           </div>
                         ))
                       ) : (
@@ -389,7 +446,10 @@ const EmploisDuTemps = () => {
                   </div>
                 );
               })}
+<<<<<<< HEAD
               </div>
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             </div>
           ) : (
             <p>Aucun emploi du temps disponible</p>

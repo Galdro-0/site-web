@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import Image from "../assets/images.png";
 import Logo from "../assets/ENSA-BENI-MELLAL-LOGO.png";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
+<<<<<<< HEAD
 import { FaExclamationCircle } from "react-icons/fa";
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ onClose, onLoginSuccess }) => {
@@ -12,6 +19,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
   const [cin, setCin] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
   const [formErrors, setFormErrors] = useState({ apogee: "", cin: "" });
   const [rememberMe, setRememberMe] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
@@ -86,6 +94,19 @@ const Login = ({ onClose, onLoginSuccess }) => {
       return;
     }
 
+=======
+  const navigate = useNavigate();
+
+  // Fermer le formulaire lorsque l'utilisateur clique en dehors
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     setError("");
     setLoading(true);
 
@@ -104,6 +125,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
         throw new Error(data.message || "Erreur de connexion");
       }
 
+<<<<<<< HEAD
       // Gérer l'option "Se souvenir de moi"
       if (rememberMe) {
         localStorage.setItem("savedApogee", apogee);
@@ -113,6 +135,8 @@ const Login = ({ onClose, onLoginSuccess }) => {
         localStorage.removeItem("rememberMe");
       }
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       // Stocker le token et les informations de l'utilisateur
       localStorage.setItem("userToken", data.token);
       localStorage.setItem("userData", JSON.stringify({
@@ -124,6 +148,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
         annee: data.annee
       }));
 
+<<<<<<< HEAD
       // Animation de sortie avant redirection
       setFadeIn(false);
       setTimeout(() => {
@@ -132,6 +157,13 @@ const Login = ({ onClose, onLoginSuccess }) => {
           onLoginSuccess(data);
         }
       }, 300);
+=======
+      // Appeler la fonction de succès qui gérera la redirection
+      if (onLoginSuccess) {
+        onLoginSuccess(data);
+      }
+      // La redirection est maintenant gérée par le composant parent
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     } catch (err) {
       setError(err.message || "Erreur de connexion. Veuillez réessayer.");
     } finally {
@@ -140,6 +172,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div style={{
       ...styles.overlay,
       opacity: fadeIn ? 1 : 0,
@@ -151,6 +184,10 @@ const Login = ({ onClose, onLoginSuccess }) => {
         opacity: fadeIn ? 1 : 0,
         transition: 'transform 0.3s ease-out, opacity 0.3s ease-in-out'
       }}>
+=======
+    <div style={styles.overlay} onClick={handleOverlayClick}>
+      <div style={styles.loginMain}>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         <div style={styles.loginLeft}>
           <img src={Image} alt="Login Illustration" style={styles.loginImage} />
         </div>
@@ -162,6 +199,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
             <div style={styles.loginCenter}>
               <h2 style={styles.welcomeText}>Welcome back!</h2>
               <p style={styles.subText}>Please enter your details</p>
+<<<<<<< HEAD
               {error && (
                 <div style={styles.errorContainer}>
                   <FaExclamationCircle style={styles.errorIcon} />
@@ -223,6 +261,33 @@ const Login = ({ onClose, onLoginSuccess }) => {
                   {formErrors.cin && (
                     <p style={styles.fieldError}>{formErrors.cin}</p>
                   )}
+=======
+              {error && <p style={styles.errorText}>{error}</p>}
+              <form style={styles.loginForm} onSubmit={handleLogin}>
+                <input
+                  type="text"
+                  placeholder="Appogée"
+                  style={styles.inputField}
+                  value={apogee}
+                  onChange={(e) => setApogee(e.target.value)}
+                  required
+                />
+                <div style={styles.passInputDiv}>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="CIN"
+                    style={styles.inputField}
+                    value={cin}
+                    onChange={(e) => setCin(e.target.value)}
+                    required
+                  />
+                  <span
+                    style={styles.eyeIcon}
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 </div>
 
                 <div style={styles.loginCenterOptions}>
@@ -231,8 +296,11 @@ const Login = ({ onClose, onLoginSuccess }) => {
                       type="checkbox"
                       id="remember-checkbox"
                       style={styles.checkbox}
+<<<<<<< HEAD
                       checked={rememberMe}
                       onChange={() => setRememberMe(!rememberMe)}
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                     />
                     <label htmlFor="remember-checkbox" style={styles.checkboxLabel}>
                       Remember for 30 days
@@ -242,6 +310,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
                 <div style={styles.loginCenterButtons}>
                   <button
                     type="submit"
+<<<<<<< HEAD
                     style={{
                       ...styles.loginButton,
                       opacity: loading ? 0.7 : 1,
@@ -256,6 +325,12 @@ const Login = ({ onClose, onLoginSuccess }) => {
                         <span>Connexion...</span>
                       </div>
                     ) : "Log In"}
+=======
+                    style={styles.loginButton}
+                    disabled={loading}
+                  >
+                    {loading ? "Connexion en cours..." : "Log In"}
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                   </button>
                 </div>
               </form>
@@ -267,7 +342,11 @@ const Login = ({ onClose, onLoginSuccess }) => {
   );
 };
 
+<<<<<<< HEAD
 // Styles JSX améliorés
+=======
+// Styles JSX
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 const styles = {
   overlay: {
     position: 'fixed',
@@ -287,10 +366,14 @@ const styles = {
     backgroundColor: '#fff',
     borderRadius: '10px',
     overflow: 'hidden',
+<<<<<<< HEAD
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
     maxWidth: '900px',
     width: '90%',
     maxHeight: '90vh',
+=======
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginLeft: {
     flex: 1,
@@ -304,14 +387,21 @@ const styles = {
   loginImage: {
     maxWidth: '80%',
     height: 'auto',
+<<<<<<< HEAD
     animation: 'float 6s ease-in-out infinite',
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginRight: {
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+<<<<<<< HEAD
     padding: '30px',
+=======
+    padding: '20px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginRightContainer: {
     width: '100%',
@@ -324,12 +414,16 @@ const styles = {
   logoImage: {
     width: '100px',
     height: 'auto',
+<<<<<<< HEAD
     transition: 'transform 0.3s ease',
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginCenter: {
     textAlign: 'center',
   },
   welcomeText: {
+<<<<<<< HEAD
     fontSize: '28px',
     fontWeight: 'bold',
     marginBottom: '10px',
@@ -366,12 +460,28 @@ const styles = {
     textAlign: 'left',
     marginTop: '4px',
     marginBottom: 0,
+=======
+    fontSize: '24px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  },
+  subText: {
+    fontSize: '14px',
+    color: '#718096',
+    marginBottom: '20px',
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: '15px',
+    fontSize: '14px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginForm: {
     display: 'flex',
     flexDirection: 'column',
     gap: '15px',
   },
+<<<<<<< HEAD
   inputContainer: {
     marginBottom: '5px',
   },
@@ -382,29 +492,47 @@ const styles = {
     border: '1px solid #cbd5e0',
     fontSize: '14px',
     transition: 'border-color 0.2s, box-shadow 0.2s',
+=======
+  inputField: {
+    padding: '10px',
+    borderRadius: '5px',
+    border: '1px solid #cbd5e0',
+    fontSize: '14px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   passInputDiv: {
     position: 'relative',
   },
   eyeIcon: {
     position: 'absolute',
+<<<<<<< HEAD
     right: '12px',
+=======
+    right: '10px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     top: '50%',
     transform: 'translateY(-50%)',
     cursor: 'pointer',
     color: '#718096',
+<<<<<<< HEAD
     transition: 'color 0.2s',
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginCenterOptions: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '20px',
+<<<<<<< HEAD
     marginTop: '5px',
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   rememberDiv: {
     display: 'flex',
     alignItems: 'center',
+<<<<<<< HEAD
     gap: '8px',
   },
   checkbox: {
@@ -412,19 +540,32 @@ const styles = {
     width: '16px',
     height: '16px',
     accentColor: '#2563eb',
+=======
+    gap: '5px',
+  },
+  checkbox: {
+    cursor: 'pointer',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   checkboxLabel: {
     fontSize: '14px',
     color: '#4a5568',
+<<<<<<< HEAD
     cursor: 'pointer',
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   loginCenterButtons: {
     display: 'flex',
     justifyContent: 'center',
   },
   loginButton: {
+<<<<<<< HEAD
     width: '100%',
     padding: '12px 20px',
+=======
+    padding: '10px 20px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     backgroundColor: '#2563eb',
     color: 'white',
     border: 'none',
@@ -432,6 +573,7 @@ const styles = {
     cursor: 'pointer',
     fontSize: '16px',
     fontWeight: 'bold',
+<<<<<<< HEAD
     transition: 'background-color 0.2s, transform 0.1s',
     display: 'flex',
     justifyContent: 'center',
@@ -470,4 +612,9 @@ styleSheet.innerText = `
 `;
 document.head.appendChild(styleSheet);
 
+=======
+  },
+};
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 export default Login;

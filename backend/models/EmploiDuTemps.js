@@ -13,12 +13,15 @@ const emploiDuTempsSchema = new mongoose.Schema({
     trim: true,
     enum: ['1', '2', '3', 'tous'] // Ajouter l'option 'tous' pour les emplois concernant toutes les années
   },
+<<<<<<< HEAD
   semaine: {
     type: Number,
     default: 1, // Par défaut, semaine 1
     min: 1,
     max: 52 // Maximum 52 semaines dans une année
   },
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   estPersonnalise: {
     type: Boolean,
     default: false
@@ -58,8 +61,12 @@ const emploiDuTempsSchema = new mongoose.Schema({
       creneaux: [
         {
           module: {
+<<<<<<< HEAD
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Module',
+=======
+            type: String,
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             required: true
           },
           debut: {
@@ -75,8 +82,12 @@ const emploiDuTempsSchema = new mongoose.Schema({
             required: true
           },
           professeur: {
+<<<<<<< HEAD
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Professor',
+=======
+            type: String,
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             required: true
           }
         }

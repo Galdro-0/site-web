@@ -18,7 +18,11 @@ const projetSchema = new mongoose.Schema({
     },
     description: {
       type: String,
+<<<<<<< HEAD
       required: false
+=======
+      required: true
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     },
     deadline: {
       type: Date,
@@ -31,17 +35,26 @@ const projetSchema = new mongoose.Schema({
     },
     module: {
       type: String,
+<<<<<<< HEAD
       required: false
     },
     professeur: {
       type: String,
       required: false
+=======
+      required: true
+    },
+    professeur: {
+      type: String,
+      required: true
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     }
   }]
 }, {
   timestamps: true
 });
 
+<<<<<<< HEAD
 // Middleware pour convertir les ObjectId en chaînes de caractères avant la sauvegarde
 projetSchema.pre('save', function(next) {
   if (this.projets && this.projets.length > 0) {
@@ -59,3 +72,6 @@ projetSchema.pre('save', function(next) {
 });
 
 module.exports = mongoose.model('Projet', projetSchema);
+=======
+module.exports = mongoose.model('Projet', projetSchema); 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

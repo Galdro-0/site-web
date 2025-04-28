@@ -4,6 +4,7 @@ const PlanningExams = require('../models/PlanningExams');
 exports.getPlanningExams = async (req, res) => {
   try {
     const { filiere, annee } = req.params;
+<<<<<<< HEAD
     console.log(`Récupération du planning des examens pour ${filiere}/${annee}`);
 
     // Récupérer l'ID de l'étudiant connecté
@@ -73,6 +74,16 @@ exports.getPlanningExams = async (req, res) => {
     res.json(filteredPlanning);
   } catch (error) {
     console.error('Erreur lors de la récupération du planning des examens:', error);
+=======
+    const planning = await PlanningExams.findOne({ filiere, annee });
+    
+    if (!planning) {
+      return res.status(404).json({ message: 'Planning non trouvé' });
+    }
+    
+    res.json(planning);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(500).json({ message: error.message });
   }
 };
@@ -97,11 +108,19 @@ exports.updatePlanningExams = async (req, res) => {
       req.body,
       { new: true }
     );
+<<<<<<< HEAD
 
     if (!planning) {
       return res.status(404).json({ message: 'Planning non trouvé' });
     }
 
+=======
+    
+    if (!planning) {
+      return res.status(404).json({ message: 'Planning non trouvé' });
+    }
+    
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.json(planning);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -113,13 +132,25 @@ exports.deletePlanningExams = async (req, res) => {
   try {
     const { filiere, annee } = req.params;
     const planning = await PlanningExams.findOneAndDelete({ filiere, annee });
+<<<<<<< HEAD
 
     if (!planning) {
       return res.status(404).json({ message: 'Planning non trouvé' });
     }
 
+=======
+    
+    if (!planning) {
+      return res.status(404).json({ message: 'Planning non trouvé' });
+    }
+    
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.json({ message: 'Planning supprimé avec succès' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+<<<<<<< HEAD
 };
+=======
+}; 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

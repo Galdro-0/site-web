@@ -16,6 +16,7 @@
   max-width: 400px;
 }
 
+<<<<<<< HEAD
 .login-header {
   display: flex;
   flex-direction: column;
@@ -47,6 +48,12 @@
 .return-button:hover {
   color: #1e40af;
   background-color: transparent;
+=======
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1e40af;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .form-group {

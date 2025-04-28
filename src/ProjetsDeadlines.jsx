@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { FaSync } from 'react-icons/fa';
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import './ProjetsDeadlines.css';
 
 const ProjetsDeadlines = () => {
@@ -10,7 +13,10 @@ const ProjetsDeadlines = () => {
   const [projets, setProjets] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+<<<<<<< HEAD
   const [refreshing, setRefreshing] = useState(false);
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const navigate = useNavigate();
 
   // Récupérer les informations de l'étudiant connecté
@@ -25,6 +31,7 @@ const ProjetsDeadlines = () => {
   }, []);
 
   const fetchProjets = async (filiere, annee) => {
+<<<<<<< HEAD
     setLoading(true);
     setError('');
 
@@ -36,6 +43,15 @@ const ProjetsDeadlines = () => {
       const token = localStorage.getItem('userToken');
       const url = `http://localhost:5000/api/projets/${filiereNormalisee}/${annee}`;
 
+=======
+    try {
+      setLoading(true);
+      setError('');
+      
+      const token = localStorage.getItem('userToken');
+      const url = `http://localhost:5000/api/projets/${filiere}/${annee}`;
+      
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -44,6 +60,7 @@ const ProjetsDeadlines = () => {
         }
       });
 
+<<<<<<< HEAD
       // Récupérer le texte brut de la réponse pour le débogage
       const responseText = await response.text();
       console.log('Réponse brute du serveur:', responseText);
@@ -68,6 +85,17 @@ const ProjetsDeadlines = () => {
       console.error('Erreur complète:', err);
       setError(err.message);
       throw err; // Propager l'erreur pour la promesse
+=======
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ message: 'Erreur de connexion au serveur' }));
+        throw new Error(errorData.message || 'Erreur lors de la récupération des projets');
+      }
+
+      const data = await response.json();
+      setProjets(data);
+    } catch (err) {
+      setError(err.message);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     } finally {
       setLoading(false);
     }
@@ -99,6 +127,7 @@ const ProjetsDeadlines = () => {
     navigate('/accueil');
   };
 
+<<<<<<< HEAD
   // Fonction pour rafraîchir les projets
   const handleRefresh = () => {
     if (major && year && !refreshing) {
@@ -133,6 +162,8 @@ const ProjetsDeadlines = () => {
     return statut.replace(/\s/g, '').replace(/[àáâãäåçèéêëìíîïñòóôõöùúûüýÿ]/g, '').toLowerCase();
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   return (
     <div className="projets-deadlines-container">
       <div className="header-actions">
@@ -189,6 +220,7 @@ const ProjetsDeadlines = () => {
               </ul>
             </div>
           ) : projets && projets.projets ? (
+<<<<<<< HEAD
             <div>
               <div className="projets-header">
                 <div className="refresh-container">
@@ -203,6 +235,9 @@ const ProjetsDeadlines = () => {
                 </div>
               </div>
               <table className="projets-table">
+=======
+            <table className="projets-table">
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               <thead>
                 <tr>
                   <th>Projet</th>
@@ -217,12 +252,21 @@ const ProjetsDeadlines = () => {
                 {projets.projets.map((projet, index) => (
                   <tr key={index}>
                     <td>{projet.nom}</td>
+<<<<<<< HEAD
                     <td>{typeof projet.module === 'object' ? projet.module.nom : projet.module}</td>
                     <td>{projet.description}</td>
                     <td>{formatDate(projet.deadline)}</td>
                     <td>{typeof projet.professeur === 'object' ? `${projet.professeur.nom} ${projet.professeur.prenom}` : projet.professeur}</td>
                     <td>
                       <span className={`statut ${getStatutClass(projet.statut)}`}>
+=======
+                    <td>{projet.module}</td>
+                    <td>{projet.description}</td>
+                    <td>{formatDate(projet.deadline)}</td>
+                    <td>{projet.professeur}</td>
+                    <td>
+                      <span className={`statut ${projet.statut.replace(/\s/g, '').toLowerCase()}`}>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         {projet.statut}
                       </span>
                     </td>
@@ -230,7 +274,10 @@ const ProjetsDeadlines = () => {
                 ))}
               </tbody>
             </table>
+<<<<<<< HEAD
             </div>
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           ) : (
             <p>Aucun projet disponible</p>
           )}

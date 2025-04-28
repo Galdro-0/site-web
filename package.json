@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "plateforme-educative-ensabm",
+=======
+  "name": "my-react-app",
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "chart.js": "^4.4.9",
@@ -17,6 +22,11 @@
     "multer": "^1.4.5-lts.2",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
+=======
+    "lucide-react": "^0.503.0",
+    "multer": "^1.4.5-lts.2",
+    "react": "^19.0.0",
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.3.0"

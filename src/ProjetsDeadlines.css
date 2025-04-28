@@ -1,4 +1,5 @@
 .projets-deadlines-container {
+<<<<<<< HEAD
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9fafb;
@@ -362,3 +363,70 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
 }
+=======
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+  
+  .projets-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .projets-table th,
+  .projets-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .projets-table th {
+    background-color: #f3f4f6;
+    color: #374151;
+  }
+  
+  .projets-table tr:hover {
+    background-color: #f0f4ff;
+  }
+  
+  .statut {
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .statut.enCours {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .statut.afaire {
+    background-color: #fef9c3;
+    color: #92400e;
+  }
+  
+  .statut.termine {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .statut.prevu {
+    background-color: #ede9fe;
+    color: #5b21b6;
+  }
+  
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

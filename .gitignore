@@ -7,7 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
 # Dependencies
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 node_modules
 dist
 dist-ssr
@@ -23,6 +26,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
 # Environment variables
 .env
@@ -43,3 +47,5 @@ dist-ssr
 .cache
 .parcel-cache
 coverage
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

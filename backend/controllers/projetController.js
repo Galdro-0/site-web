@@ -1,5 +1,6 @@
 const Projet = require('../models/Projet');
 
+<<<<<<< HEAD
 // Récupérer les projets par filière et année
 exports.getProjets = async (req, res) => {
   try {
@@ -71,6 +72,18 @@ exports.getProjets = async (req, res) => {
 exports.getAllProjets = async (req, res) => {
   try {
     const projets = await Projet.find({});
+=======
+// Récupérer les projets
+exports.getProjets = async (req, res) => {
+  try {
+    const { filiere, annee } = req.params;
+    const projets = await Projet.findOne({ filiere, annee });
+    
+    if (!projets) {
+      return res.status(404).json({ message: 'Aucun projet trouvé' });
+    }
+    
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.json(projets);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -80,6 +93,7 @@ exports.getAllProjets = async (req, res) => {
 // Créer un nouveau projet
 exports.createProjet = async (req, res) => {
   try {
+<<<<<<< HEAD
     console.log('Données reçues pour création de projet:', req.body);
 
     // Normaliser la filière en minuscules
@@ -108,6 +122,12 @@ exports.createProjet = async (req, res) => {
     res.status(201).json(savedProjet);
   } catch (error) {
     console.error('Erreur lors de la création du projet:', error);
+=======
+    const projet = new Projet(req.body);
+    const savedProjet = await projet.save();
+    res.status(201).json(savedProjet);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(400).json({ message: error.message });
   }
 };
@@ -115,6 +135,7 @@ exports.createProjet = async (req, res) => {
 // Mettre à jour un projet
 exports.updateProjet = async (req, res) => {
   try {
+<<<<<<< HEAD
     let { filiere, annee } = req.params;
     console.log('Données reçues pour mise à jour de projet:', req.body);
     console.log('Paramètres bruts:', { filiere, annee });
@@ -145,6 +166,21 @@ exports.updateProjet = async (req, res) => {
     res.json(projet);
   } catch (error) {
     console.error('Erreur lors de la mise à jour du projet:', error);
+=======
+    const { filiere, annee } = req.params;
+    const projet = await Projet.findOneAndUpdate(
+      { filiere, annee },
+      req.body,
+      { new: true }
+    );
+    
+    if (!projet) {
+      return res.status(404).json({ message: 'Projet non trouvé' });
+    }
+    
+    res.json(projet);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(400).json({ message: error.message });
   }
 };
@@ -152,6 +188,7 @@ exports.updateProjet = async (req, res) => {
 // Supprimer un projet
 exports.deleteProjet = async (req, res) => {
   try {
+<<<<<<< HEAD
     let { filiere, annee } = req.params;
     console.log('Suppression du projet pour (paramètres bruts):', { filiere, annee });
 
@@ -172,3 +209,17 @@ exports.deleteProjet = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+=======
+    const { filiere, annee } = req.params;
+    const projet = await Projet.findOneAndDelete({ filiere, annee });
+    
+    if (!projet) {
+      return res.status(404).json({ message: 'Projet non trouvé' });
+    }
+    
+    res.json({ message: 'Projet supprimé avec succès' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}; 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

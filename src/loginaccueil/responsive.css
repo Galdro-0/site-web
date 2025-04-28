@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Animations */
 @keyframes slowZoom {
     0% {
@@ -119,6 +120,12 @@
     footer > div:first-child > div {
         text-align: center !important;
     }
+=======
+@media(max-width: 900px){
+    .login-left{
+        display: none;
+    }   
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 @media(max-width: 370px){
@@ -139,4 +146,8 @@
     .login-center p{
         font-size: 1.5rem;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }

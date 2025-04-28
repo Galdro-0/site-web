@@ -12,6 +12,7 @@ const planningExamsSchema = new mongoose.Schema({
     enum: ['1', '2', '3']
   },
   examens: [{
+<<<<<<< HEAD
     examId: {
       type: String,
       required: false // Pas requis pour la compatibilité avec les anciens examens
@@ -20,6 +21,8 @@ const planningExamsSchema = new mongoose.Schema({
       type: String,
       required: false // Pas requis pour la compatibilité avec les anciens examens
     },
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     module: {
       type: String,
       required: true
@@ -43,6 +46,7 @@ const planningExamsSchema = new mongoose.Schema({
     professeur: {
       type: String,
       required: true
+<<<<<<< HEAD
     },
     pourEtudiantsSpecifiques: {
       type: Boolean,
@@ -51,10 +55,16 @@ const planningExamsSchema = new mongoose.Schema({
     etudiants: {
       type: [String],
       default: []
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     }
   }]
 }, {
   timestamps: true
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('PlanningExams', planningExamsSchema);
+=======
+module.exports = mongoose.model('PlanningExams', planningExamsSchema); 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

@@ -49,6 +49,7 @@
   background-color: #b91c1c;
 }
 
+<<<<<<< HEAD
 .refresh-btn {
   background-color: #10b981;
   color: white;
@@ -67,6 +68,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 .emplois-form .form-group {
   margin-bottom: 1rem;
 }
@@ -136,6 +139,7 @@
 .error-message {
   color: #dc2626;
   margin: 1rem 0;
+<<<<<<< HEAD
   background-color: #fee2e2;
   padding: 1rem;
   border-radius: 4px;
@@ -238,6 +242,12 @@
 
 .emplois-grid {
   margin-top: 1rem;
+=======
+}
+
+.emplois-grid {
+  margin-top: 2rem;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
@@ -314,18 +324,30 @@
   .emplois-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   .emplois-container {
     margin: 20px;
     padding: 1rem;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   .header-actions {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   .buttons-container {
     width: 100%;
     justify-content: space-between;
@@ -334,6 +356,7 @@
   .student-select {
     max-width: 100%;
   }
+<<<<<<< HEAD
 
   .semaine-selector {
     flex-direction: column;
@@ -355,12 +378,15 @@
     max-width: 100%;
     width: 100%;
   }
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 @media (max-width: 480px) {
   .emplois-grid {
     grid-template-columns: 1fr;
   }
+<<<<<<< HEAD
 
   .cours-card {
     padding: 0.6rem;
@@ -387,4 +413,18 @@
     padding: 0.2rem 0.6rem;
     width: 100%;
   }
+=======
+  
+  .cours-card {
+    padding: 0.6rem;
+  }
+  
+  .cours-card h4 {
+    font-size: 0.9rem;
+  }
+  
+  .cours-time, .cours-location, .cours-prof {
+    font-size: 0.8rem;
+  }
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }

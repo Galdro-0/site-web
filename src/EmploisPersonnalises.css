@@ -30,6 +30,7 @@
 
 .refresh-btn {
   background-color: #10b981; /* Couleur verte pour le bouton de rafraîchissement */
+<<<<<<< HEAD
   font-weight: bold;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
@@ -41,6 +42,8 @@
   background-color: #059669;
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .back-btn {
@@ -56,6 +59,7 @@
   margin-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 .info-message {
   background-color: #e0f2fe;
   color: #0369a1;
@@ -65,6 +69,8 @@
   border-left: 4px solid #0ea5e9;
 }
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 /* Styles pour la liste des emplois */
 .emplois-list {
   margin-top: 1rem;

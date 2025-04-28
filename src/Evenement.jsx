@@ -11,7 +11,10 @@ const Evenement = () => {
   const [error, setError] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showModal, setShowModal] = useState(false);
+<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState('upcoming'); // 'upcoming', 'today', 'past', 'all'
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const navigate = useNavigate();
 
   // Récupérer les informations de l'étudiant connecté
@@ -29,6 +32,7 @@ const Evenement = () => {
     try {
       setLoading(true);
       setError('');
+<<<<<<< HEAD
 
       console.log(`Récupération des événements pour filière: ${filiere}, année: ${annee}`);
 
@@ -36,6 +40,12 @@ const Evenement = () => {
       const url = `http://localhost:5000/api/evenements/${filiere}/${annee}`;
       console.log('URL de l\'API:', url);
 
+=======
+      
+      const token = localStorage.getItem('userToken');
+      const url = `http://localhost:5000/api/evenements/${filiere}/${annee}`;
+      
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -46,11 +56,15 @@ const Evenement = () => {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ message: 'Erreur de connexion au serveur' }));
+<<<<<<< HEAD
         console.error('Erreur de l\'API:', errorData);
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         throw new Error(errorData.message || 'Erreur lors de la récupération des événements');
       }
 
       const data = await response.json();
+<<<<<<< HEAD
       console.log(`${data.length} événements récupérés:`, data);
 
       // Vérifier si des événements avec filière 'tous' sont présents
@@ -63,6 +77,10 @@ const Evenement = () => {
       setEvenements(data);
     } catch (err) {
       console.error('Erreur lors de la récupération des événements:', err);
+=======
+      setEvenements(data);
+    } catch (err) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       setError(err.message);
     } finally {
       setLoading(false);
@@ -77,6 +95,7 @@ const Evenement = () => {
     }
   };
 
+<<<<<<< HEAD
   // Fonction pour déterminer le statut d'un événement
   const getEventStatus = (dateDebut, dateFin) => {
     const now = new Date();
@@ -123,6 +142,12 @@ const Evenement = () => {
     const timeOptions = { hour: '2-digit', minute: '2-digit' };
 
     return `${date.toLocaleDateString('fr-FR', dateOptions)} à ${date.toLocaleTimeString('fr-FR', timeOptions)}`;
+=======
+  // Fonction pour formater la date
+  const formatDate = (dateString) => {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('fr-FR', options);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   };
 
   // Fonction pour formater l'heure
@@ -154,6 +179,7 @@ const Evenement = () => {
     navigate('/accueil');
   };
 
+<<<<<<< HEAD
   // Fonction pour filtrer les événements par statut
   const filterEventsByStatus = (events) => {
     if (!events || !Array.isArray(events)) return [];
@@ -175,6 +201,8 @@ const Evenement = () => {
     });
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   return (
     <div className="evenement-container">
       <div className="header-actions">
@@ -230,6 +258,7 @@ const Evenement = () => {
                 <li>Vous êtes bien connecté</li>
               </ul>
             </div>
+<<<<<<< HEAD
           ) : evenements && Array.isArray(evenements) ? (
             <>
               <div className="event-header">
@@ -317,6 +346,26 @@ const Evenement = () => {
                 )}
               </div>
             </>
+=======
+          ) : evenements && evenements.evenements ? (
+            <div className="evenements-grid">
+              {evenements.evenements.map((event, index) => (
+                <div 
+                  key={index} 
+                  className="event-card"
+                  onClick={() => handleEventClick(event)}
+                >
+                  <h3>{event.titre}</h3>
+                  <p className="event-date">{formatDate(event.date)}</p>
+                  <p className="event-time">{formatTime(event.heureDebut)} - {formatTime(event.heureFin)}</p>
+                  <p className="event-location">{event.lieu}</p>
+                  <span className={`event-type ${event.type.toLowerCase()}`}>
+                    {event.type}
+                  </span>
+                </div>
+              ))}
+            </div>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           ) : (
             <p>Aucun événement disponible</p>
           )}
@@ -332,6 +381,7 @@ const Evenement = () => {
               <button className="close-button" onClick={handleCloseModal}>×</button>
             </div>
             <div className="modal-body">
+<<<<<<< HEAD
               {selectedEvent.image && (
                 <div className="event-image">
                   <img
@@ -412,6 +462,23 @@ const Evenement = () => {
                   <p>{selectedEvent.description}</p>
                 </div>
               )}
+=======
+              <div className="event-details">
+                <p><strong>Date:</strong> {formatDate(selectedEvent.date)}</p>
+                <p><strong>Heure:</strong> {formatTime(selectedEvent.heureDebut)} - {formatTime(selectedEvent.heureFin)}</p>
+                <p><strong>Lieu:</strong> {selectedEvent.lieu}</p>
+                <p><strong>Type:</strong> {selectedEvent.type}</p>
+                {selectedEvent.description && (
+                  <p><strong>Description:</strong> {selectedEvent.description}</p>
+                )}
+                {selectedEvent.organisateur && (
+                  <p><strong>Organisateur:</strong> {selectedEvent.organisateur}</p>
+                )}
+                {selectedEvent.participants && (
+                  <p><strong>Participants:</strong> {selectedEvent.participants}</p>
+                )}
+              </div>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             </div>
           </div>
         </div>

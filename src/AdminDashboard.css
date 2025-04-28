@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Variables de couleurs et styles pour l'application */
 :root {
   /* Palette de couleurs standard */
@@ -94,10 +95,19 @@
 /* Styles pour l'en-tête administrateur */
 
 /* Style de l'en-tête administrateur */
+=======
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 .admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   margin-bottom: 24px;
   padding: 20px 24px;
   background-color: var(--header-bg);
@@ -112,6 +122,11 @@
   color: var(--primary-color);
   margin: 0;
   letter-spacing: 0.5px;
+=======
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .admin-info {
@@ -120,6 +135,7 @@
   gap: 15px;
 }
 
+<<<<<<< HEAD
 .admin-info span {
   font-weight: 500;
   color: var(--text-secondary);
@@ -145,10 +161,20 @@
   background-color: var(--danger-color);
   color: white;
   box-shadow: var(--box-shadow);
+=======
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .admin-tabs {
   display: flex;
+<<<<<<< HEAD
   flex-wrap: wrap;
   margin-bottom: 24px;
   background-color: var(--light-color);
@@ -371,10 +397,88 @@
 
 /* Form styles */
 .emploi-form, .etudiant-form {
+=======
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-tabs button {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+}
+
+.admin-tabs button.active {
+  border-bottom: 3px solid #2563eb;
+  font-weight: bold;
+}
+
+.admin-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Table styles */
+.emplois-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.emplois-table th, .emplois-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.emplois-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.emplois-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.view-btn, .delete-btn {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Form styles */
+.emploi-form {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   max-width: 800px;
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .admin-dashboard .form-group {
   margin-bottom: 20px;
 }
@@ -898,11 +1002,115 @@
 
 .form-container-close:hover {
   color: var(--danger-color);
+=======
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.students-select {
+  height: 150px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.radio-label input[type="radio"] {
+  margin: 0;
+}
+
+.jour-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.creneau-row {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.add-btn, .remove-btn, .submit-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.remove-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 /* Styles pour la gestion des étudiants */
 .manage-etudiants {
+<<<<<<< HEAD
   padding: 0;
+=======
+  padding: 20px;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .header-actions {
@@ -910,6 +1118,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+<<<<<<< HEAD
   padding-bottom: 12px;
   border-bottom: 1px solid var(--gray-200);
 }
@@ -967,6 +1176,15 @@
   font-size: 1.25rem;
   padding-bottom: 15px;
   border-bottom: 1px solid var(--gray-200);
+=======
+}
+
+.etudiant-form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }
 
 .etudiant-form {
@@ -974,6 +1192,7 @@
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .edit-btn {
   background-color: var(--accent-color);
   color: white;
@@ -1432,4 +1651,40 @@
   position: relative;
   font-size: 0.9rem;
   font-weight: 500;
+=======
+.etudiants-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.etudiants-table th, .etudiants-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.etudiants-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.etudiants-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-btn {
+  background-color: #f59e0b;
+  color: white;
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: white;
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 }

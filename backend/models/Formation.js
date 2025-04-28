@@ -13,13 +13,18 @@ const formationSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
+<<<<<<< HEAD
     required: false,
     default: '/images/default-formation.jpg'
+=======
+    required: true
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   },
   date: {
     type: Date,
     default: Date.now
   },
+<<<<<<< HEAD
   // Dates de début et fin pour une meilleure gestion de la durée
   dateDebut: {
     type: Date,
@@ -56,11 +61,16 @@ const formationSchema = new mongoose.Schema({
     type: String,
     default: '17:00'
   },
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   category: {
     type: String,
     trim: true
   },
+<<<<<<< HEAD
   // Conserver le champ duration pour la rétrocompatibilité
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   duration: {
     type: String,
     trim: true
@@ -68,6 +78,7 @@ const formationSchema = new mongoose.Schema({
   instructor: {
     type: String,
     trim: true
+<<<<<<< HEAD
   },
   filiere: {
     type: String,
@@ -272,3 +283,11 @@ formationSchema.pre('validate', function(next) {
 const Formation = mongoose.model('Formation', formationSchema);
 
 module.exports = Formation;
+=======
+  }
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model('Formation', formationSchema);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

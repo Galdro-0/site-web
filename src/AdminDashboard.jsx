@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
+<<<<<<< HEAD
 // Import des icônes Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,10 +13,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import GestionFormations from './GestionFormations';
 import GestionCompetences from './GestionCompetences';
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('emplois');
+<<<<<<< HEAD
   const [formations, setFormations] = useState([]);
   const [emploisPersonnalises, setEmploisPersonnalises] = useState([]);
   const [etudiants, setEtudiants] = useState([]);
@@ -24,6 +28,10 @@ const AdminDashboard = () => {
   const [projets, setProjets] = useState([]);
   const [examens, setExamens] = useState([]);
   const [evenements, setEvenements] = useState([]);
+=======
+  const [emploisPersonnalises, setEmploisPersonnalises] = useState([]);
+  const [etudiants, setEtudiants] = useState([]);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [adminData, setAdminData] = useState(null);
@@ -43,6 +51,7 @@ const AdminDashboard = () => {
     annee: ''
   });
 
+<<<<<<< HEAD
   // États pour la gestion des professeurs
   const [selectedProfessor, setSelectedProfessor] = useState(null);
   const [showProfessorForm, setShowProfessorForm] = useState(false);
@@ -138,6 +147,9 @@ const AdminDashboard = () => {
   });
 
   // État pour le formulaire de création/modification d'emploi personnalisé
+=======
+  // État pour le formulaire de création d'emploi personnalisé
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const [formData, setFormData] = useState({
     titre: '',
     description: '',
@@ -169,10 +181,13 @@ const AdminDashboard = () => {
     ]
   });
 
+<<<<<<< HEAD
   // État pour le mode du formulaire (création ou modification)
   const [formMode, setFormMode] = useState('add'); // 'add' ou 'edit'
   const [selectedEmploi, setSelectedEmploi] = useState(null);
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // État pour contrôler l'affichage de la sélection d'étudiants spécifiques
   const [showStudentSelection, setShowStudentSelection] = useState(false);
 
@@ -193,6 +208,7 @@ const AdminDashboard = () => {
     fetchEtudiants();
   }, [navigate]);
 
+<<<<<<< HEAD
   // Charger les étudiants, professeurs, modules, projets, examens, événements et formations lorsque l'onglet est sélectionné
   useEffect(() => {
     if (activeTab === 'etudiants') {
@@ -218,6 +234,12 @@ const AdminDashboard = () => {
       // Charger les professeurs et les modules pour le formulaire de création d'emploi du temps
       fetchProfessors();
       fetchModules();
+=======
+  // Charger les étudiants lorsque l'onglet est sélectionné
+  useEffect(() => {
+    if (activeTab === 'etudiants') {
+      fetchEtudiants();
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     }
   }, [activeTab]);
 
@@ -540,11 +562,19 @@ const AdminDashboard = () => {
     if (jourIndex !== -1) {
       const newEmplois = [...formData.emplois];
       newEmplois[jourIndex].creneaux.push({
+<<<<<<< HEAD
         module: '', // Sera remplacé par l'ID du module sélectionné
         debut: '',
         fin: '',
         salle: '',
         professeur: '' // Sera remplacé par l'ID du professeur sélectionné
+=======
+        module: '',
+        debut: '',
+        fin: '',
+        salle: '',
+        professeur: ''
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       });
       setFormData({
         ...formData,
@@ -586,6 +616,7 @@ const AdminDashboard = () => {
       setLoading(true);
       const token = localStorage.getItem('adminToken');
 
+<<<<<<< HEAD
       let response;
       let successMessage;
 
@@ -626,6 +657,22 @@ const AdminDashboard = () => {
       // getEmploisPersonnalisesEtudiant qui récupère les emplois du temps pour un étudiant
       // en fonction de sa filière et de son année
 
+=======
+      const response = await fetch('http://localhost:5000/api/emplois-personnalises', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erreur lors de la création de l\'emploi personnalisé');
+      }
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       // Réinitialiser le formulaire
       setFormData({
         titre: '',
@@ -643,17 +690,24 @@ const AdminDashboard = () => {
         ]
       });
 
+<<<<<<< HEAD
       // Réinitialiser le mode du formulaire
       setFormMode('add');
       setSelectedEmploi(null);
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       // Réinitialiser l'affichage de la sélection d'étudiants
       setShowStudentSelection(false);
 
       // Rafraîchir la liste des emplois
       fetchEmploisPersonnalises();
 
+<<<<<<< HEAD
       alert(successMessage);
+=======
+      alert('Emploi du temps personnalisé créé avec succès!');
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     } catch (err) {
       setError(err.message);
     } finally {
@@ -661,6 +715,7 @@ const AdminDashboard = () => {
     }
   };
 
+<<<<<<< HEAD
   // Récupérer la liste des modules
   const fetchModules = async () => {
     try {
@@ -2521,6 +2576,8 @@ const AdminDashboard = () => {
     }
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // Supprimer un emploi personnalisé
   const deleteEmploiPersonnalise = async (id) => {
     if (!window.confirm('Êtes-vous sûr de vouloir supprimer cet emploi du temps personnalisé?')) {
@@ -2531,8 +2588,11 @@ const AdminDashboard = () => {
       setLoading(true);
       const token = localStorage.getItem('adminToken');
 
+<<<<<<< HEAD
       console.log(`Tentative de suppression de l'emploi du temps avec ID: ${id}`);
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       const response = await fetch(`http://localhost:5000/api/emplois-personnalises/${id}`, {
         method: 'DELETE',
         headers: {
@@ -2540,6 +2600,7 @@ const AdminDashboard = () => {
         }
       });
 
+<<<<<<< HEAD
       console.log('Statut de la réponse:', response.status);
 
       // Tenter de lire le corps de la réponse pour plus d'informations
@@ -2566,6 +2627,19 @@ const AdminDashboard = () => {
     } catch (err) {
       console.error('Erreur complète:', err);
       setError(err.message);
+=======
+      if (!response.ok) {
+        throw new Error('Erreur lors de la suppression de l\'emploi personnalisé');
+      }
+
+      // Rafraîchir la liste des emplois
+      fetchEmploisPersonnalises();
+
+      alert('Emploi du temps personnalisé supprimé avec succès!');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       setLoading(false);
     }
   };
@@ -2573,6 +2647,7 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard">
       <header className="admin-header">
+<<<<<<< HEAD
         <div className="admin-header-title">
           <h1>Tableau de bord administrateur</h1>
           <div className="admin-header-subtitle">Gérez les emplois du temps et les étudiants</div>
@@ -2589,6 +2664,13 @@ const AdminDashboard = () => {
             <button onClick={handleLogout} className="logout-btn">
               <FontAwesomeIcon icon={faSignOutAlt} /> Déconnexion
             </button>
+=======
+        <h1>Tableau de bord administrateur</h1>
+        {adminData && (
+          <div className="admin-info">
+            <span>{adminData.prenom} {adminData.nom}</span>
+            <button onClick={handleLogout} className="logout-btn">Déconnexion</button>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           </div>
         )}
       </header>
@@ -2598,20 +2680,29 @@ const AdminDashboard = () => {
           className={activeTab === 'emplois' ? 'active' : ''}
           onClick={() => setActiveTab('emplois')}
         >
+<<<<<<< HEAD
           <FontAwesomeIcon icon={faCalendarAlt} style={{ marginRight: '8px' }} />
           Gestion des emplois du temps
+=======
+          Emplois personnalisés
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         </button>
         <button
           className={activeTab === 'creer' ? 'active' : ''}
           onClick={() => setActiveTab('creer')}
         >
+<<<<<<< HEAD
           <FontAwesomeIcon icon={faPlus} style={{ marginRight: '8px' }} />
           Créer un emploi du temps
+=======
+          Créer un emploi personnalisé
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         </button>
         <button
           className={activeTab === 'etudiants' ? 'active' : ''}
           onClick={() => setActiveTab('etudiants')}
         >
+<<<<<<< HEAD
           <FontAwesomeIcon icon={faUserGraduate} style={{ marginRight: '8px' }} />
           Gestion des étudiants
         </button>
@@ -2764,6 +2855,22 @@ const AdminDashboard = () => {
               <p>Chargement...</p>
             ) : emploisPersonnalises.length === 0 ? (
               <p>Aucun emploi du temps trouvé.</p>
+=======
+          Gestion des étudiants
+        </button>
+      </div>
+
+      <div className="admin-content">
+        {error && <div className="error-message">{error}</div>}
+
+        {activeTab === 'emplois' && (
+          <div className="emplois-list">
+            <h2>Liste des emplois du temps personnalisés</h2>
+            {loading ? (
+              <p>Chargement...</p>
+            ) : emploisPersonnalises.length === 0 ? (
+              <p>Aucun emploi du temps personnalisé trouvé.</p>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             ) : (
               <table className="emplois-table">
                 <thead>
@@ -2781,6 +2888,7 @@ const AdminDashboard = () => {
                       <td>{emploi.titre}</td>
                       <td>{emploi.filiere}</td>
                       <td>{emploi.annee}</td>
+<<<<<<< HEAD
                       <td>
                         {emploi.pourTouteFiliere
                           ? etudiants.filter(etudiant =>
@@ -2790,11 +2898,15 @@ const AdminDashboard = () => {
                           : emploi.etudiants.length
                         }
                       </td>
+=======
+                      <td>{emploi.etudiants.length}</td>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                       <td>
                         <button
                           onClick={() => navigate(`/admin/emplois/${emploi._id}`)}
                           className="view-btn"
                         >
+<<<<<<< HEAD
                           <FontAwesomeIcon icon={faEye} /> Voir
                         </button>
                         <button
@@ -2802,12 +2914,19 @@ const AdminDashboard = () => {
                           className="edit-btn"
                         >
                           <FontAwesomeIcon icon={faEdit} /> Modifier
+=======
+                          Voir
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         </button>
                         <button
                           onClick={() => deleteEmploiPersonnalise(emploi._id)}
                           className="delete-btn"
                         >
+<<<<<<< HEAD
                           <FontAwesomeIcon icon={faTrash} /> Supprimer
+=======
+                          Supprimer
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         </button>
                       </td>
                     </tr>
@@ -2820,7 +2939,11 @@ const AdminDashboard = () => {
 
         {activeTab === 'creer' && (
           <div className="create-emploi">
+<<<<<<< HEAD
             <h2>{formMode === 'add' ? 'Créer un emploi du temps' : 'Modifier un emploi du temps'}</h2>
+=======
+            <h2>Créer un emploi du temps personnalisé</h2>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
             <form onSubmit={handleSubmit} className="emploi-form">
               <div className="form-group">
                 <label>Titre:</label>
@@ -2901,10 +3024,13 @@ const AdminDashboard = () => {
                     Étudiants spécifiques
                   </label>
                 </div>
+<<<<<<< HEAD
                 <div style={{ marginTop: '10px', color: '#4361ee', fontSize: '0.9rem' }}>
                   <FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: '5px' }} />
                   L'emploi du temps sera automatiquement mis à jour pour les étudiants concernés.
                 </div>
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               </div>
 
               {showStudentSelection && (
@@ -2919,6 +3045,7 @@ const AdminDashboard = () => {
                     required={!formData.pourTouteFiliere}
                   >
                     {etudiants
+<<<<<<< HEAD
                       .filter(etudiant => {
                         // Ignorer la casse lors de la comparaison des filières
                         const filiereMatch = formData.filiere === 'tous' ||
@@ -2930,6 +3057,12 @@ const AdminDashboard = () => {
 
                         return filiereMatch && anneeMatch;
                       })
+=======
+                      .filter(etudiant =>
+                        (formData.filiere === 'tous' || etudiant.filiere === formData.filiere) &&
+                        (formData.annee === 'tous' || etudiant.annee === formData.annee)
+                      )
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                       .map(etudiant => (
                         <option key={etudiant._id} value={etudiant._id}>
                           {etudiant.nom} {etudiant.prenom} ({etudiant.filiere} - {etudiant.annee})
@@ -2952,6 +3085,7 @@ const AdminDashboard = () => {
                       <div className="form-row">
                         <div className="form-group">
                           <label>Module:</label>
+<<<<<<< HEAD
                           <select
                             value={creneau.module}
                             onChange={(e) => handleCreneauChange(jour.jour, creneauIndex, 'module', e.target.value)}
@@ -2974,6 +3108,14 @@ const AdminDashboard = () => {
                               ))
                             }
                           </select>
+=======
+                          <input
+                            type="text"
+                            value={creneau.module}
+                            onChange={(e) => handleCreneauChange(jour.jour, creneauIndex, 'module', e.target.value)}
+                            required
+                          />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         </div>
 
                         <div className="form-group">
@@ -3010,6 +3152,7 @@ const AdminDashboard = () => {
 
                         <div className="form-group">
                           <label>Professeur:</label>
+<<<<<<< HEAD
                           <select
                             value={creneau.professeur}
                             onChange={(e) => handleCreneauChange(jour.jour, creneauIndex, 'professeur', e.target.value)}
@@ -3022,6 +3165,14 @@ const AdminDashboard = () => {
                               </option>
                             ))}
                           </select>
+=======
+                          <input
+                            type="text"
+                            value={creneau.professeur}
+                            onChange={(e) => handleCreneauChange(jour.jour, creneauIndex, 'professeur', e.target.value)}
+                            required
+                          />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                         </div>
 
                         <button
@@ -3047,8 +3198,12 @@ const AdminDashboard = () => {
 
               <div className="form-actions">
                 <button type="submit" disabled={loading} className="submit-btn">
+<<<<<<< HEAD
                   <FontAwesomeIcon icon={faCalendarAlt} style={{ marginRight: '8px' }} />
                   {loading ? (formMode === 'add' ? 'Création en cours...' : 'Mise à jour en cours...') : (formMode === 'add' ? 'Créer et appliquer l\'emploi du temps' : 'Mettre à jour l\'emploi du temps')}
+=======
+                  {loading ? 'Création en cours...' : 'Créer l\'emploi du temps'}
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                 </button>
               </div>
             </form>
@@ -3064,7 +3219,11 @@ const AdminDashboard = () => {
                 onClick={openAddEtudiantForm}
                 disabled={loading}
               >
+<<<<<<< HEAD
                 <FontAwesomeIcon icon={faPlus} /> Ajouter un étudiant
+=======
+                + Ajouter un étudiant
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               </button>
             </div>
 
@@ -3184,14 +3343,21 @@ const AdminDashboard = () => {
                         setSelectedEtudiant(null);
                       }}
                     >
+<<<<<<< HEAD
                       <FontAwesomeIcon icon={faTimes} /> Annuler
+=======
+                      Annuler
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                     </button>
                     <button
                       type="submit"
                       className="submit-btn"
                       disabled={loading}
                     >
+<<<<<<< HEAD
                       <FontAwesomeIcon icon={etudiantFormMode === 'add' ? faPlus : faEdit} />
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                       {loading ? 'Traitement en cours...' : (etudiantFormMode === 'add' ? 'Ajouter' : 'Mettre à jour')}
                     </button>
                   </div>
@@ -3232,13 +3398,21 @@ const AdminDashboard = () => {
                               className="edit-btn"
                               onClick={() => openEditEtudiantForm(etudiant)}
                             >
+<<<<<<< HEAD
                               <FontAwesomeIcon icon={faEdit} /> Modifier
+=======
+                              Modifier
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                             </button>
                             <button
                               className="delete-btn"
                               onClick={() => deleteEtudiant(etudiant._id)}
                             >
+<<<<<<< HEAD
                               <FontAwesomeIcon icon={faTrash} /> Supprimer
+=======
+                              Supprimer
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                             </button>
                           </td>
                         </tr>
@@ -3250,6 +3424,7 @@ const AdminDashboard = () => {
             )}
           </div>
         )}
+<<<<<<< HEAD
 
         {activeTab === 'professeurs' && (
           <div className="manage-professors">
@@ -4604,6 +4779,8 @@ const AdminDashboard = () => {
             <GestionCompetences />
           </div>
         )}
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       </div>
     </div>
   );

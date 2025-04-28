@@ -6,6 +6,7 @@ const EmploiDuTemps = require('../models/EmploiDuTemps');
 const getEmploiDuTemps = async (req, res) => {
   try {
     const { filiere, annee } = req.params;
+<<<<<<< HEAD
     const apogee = req.query.apogee; // Récupérer le numéro apogée de l'étudiant s'il est fourni
     const semaine = req.query.semaine ? parseInt(req.query.semaine) : null; // Récupérer la semaine si elle est fournie
 
@@ -103,6 +104,17 @@ const getEmploiDuTemps = async (req, res) => {
     res.json(emploiDuTemps);
   } catch (error) {
     console.error('Erreur lors de la récupération de l\'emploi du temps:', error);
+=======
+
+    const emploiDuTemps = await EmploiDuTemps.findOne({ filiere, annee });
+
+    if (!emploiDuTemps) {
+      return res.status(404).json({ message: 'Emploi du temps non trouvé' });
+    }
+
+    res.json(emploiDuTemps);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(500).json({ message: error.message });
   }
 };
@@ -112,6 +124,7 @@ const getEmploiDuTemps = async (req, res) => {
 // @access  Private (Admin only)
 const createEmploiDuTemps = async (req, res) => {
   try {
+<<<<<<< HEAD
     const { filiere, annee, semaine, emplois } = req.body;
 
     console.log(`Tentative de création d'un emploi du temps pour filière: ${filiere}, année: ${annee}, semaine: ${semaine || 1}`);
@@ -133,11 +146,20 @@ const createEmploiDuTemps = async (req, res) => {
     if (emploiDuTempsExists) {
       console.log(`Un emploi du temps existe déjà pour filière: ${filiere}, année: ${annee}, semaine: ${semaine || 1}`);
       return res.status(400).json({ message: 'Emploi du temps déjà existant pour cette semaine' });
+=======
+    const { filiere, annee, emplois } = req.body;
+
+    // Vérifier si l'emploi du temps existe déjà
+    const emploiDuTempsExists = await EmploiDuTemps.findOne({ filiere, annee });
+    if (emploiDuTempsExists) {
+      return res.status(400).json({ message: 'Emploi du temps déjà existant' });
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     }
 
     const emploiDuTemps = await EmploiDuTemps.create({
       filiere,
       annee,
+<<<<<<< HEAD
       semaine: semaine || 1, // Utiliser la semaine spécifiée ou 1 par défaut
       emplois
     });
@@ -146,6 +168,13 @@ const createEmploiDuTemps = async (req, res) => {
     res.status(201).json(emploiDuTemps);
   } catch (error) {
     console.error('Erreur lors de la création de l\'emploi du temps:', error);
+=======
+      emplois
+    });
+
+    res.status(201).json(emploiDuTemps);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(500).json({ message: error.message });
   }
 };
@@ -173,6 +202,7 @@ const updateEmploiDuTemps = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // @desc    Get available weeks for a filiere and annee
 // @route   GET /api/emplois-du-temps/:filiere/:annee/semaines
 // @access  Private
@@ -207,3 +237,10 @@ module.exports = {
   updateEmploiDuTemps,
   getSemainesDisponibles
 };
+=======
+module.exports = {
+  getEmploiDuTemps,
+  createEmploiDuTemps,
+  updateEmploiDuTemps
+}; 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

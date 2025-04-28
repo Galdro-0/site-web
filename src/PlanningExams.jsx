@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./PlanningExams.css";
+<<<<<<< HEAD
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
@@ -15,6 +16,8 @@ import {
   faFilter,
   faSyncAlt
 } from '@fortawesome/free-solid-svg-icons';
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
 const PlanningExams = () => {
   const [major, setMajor] = useState('');
@@ -23,8 +26,11 @@ const PlanningExams = () => {
   const [planningExams, setPlanningExams] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+<<<<<<< HEAD
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const navigate = useNavigate();
 
   // Récupérer les informations de l'étudiant connecté
@@ -42,6 +48,7 @@ const PlanningExams = () => {
     try {
       setLoading(true);
       setError('');
+<<<<<<< HEAD
 
       const token = localStorage.getItem('userToken');
       const url = `http://localhost:5000/api/planning-exams/${filiere}/${annee}`;
@@ -53,6 +60,12 @@ const PlanningExams = () => {
         throw new Error('Vous n\'êtes pas connecté. Veuillez vous connecter pour accéder à votre planning.');
       }
 
+=======
+      
+      const token = localStorage.getItem('userToken');
+      const url = `http://localhost:5000/api/planning-exams/${filiere}/${annee}`;
+      
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -61,6 +74,7 @@ const PlanningExams = () => {
         }
       });
 
+<<<<<<< HEAD
       // Si le planning n'est pas trouvé (404), on crée un planning vide plutôt que d'afficher une erreur
       if (response.status === 404) {
         console.log('Aucun planning trouvé, création d\'un planning vide');
@@ -72,12 +86,15 @@ const PlanningExams = () => {
         return;
       }
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ message: 'Erreur de connexion au serveur' }));
         throw new Error(errorData.message || 'Erreur lors de la récupération du planning');
       }
 
       const data = await response.json();
+<<<<<<< HEAD
       console.log('Planning récupéré:', data);
 
       // Vérifier que les données sont valides
@@ -106,6 +123,10 @@ const PlanningExams = () => {
       setPlanningExams(data);
     } catch (err) {
       console.error('Erreur lors de la récupération du planning:', err);
+=======
+      setPlanningExams(data);
+    } catch (err) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       setError(err.message);
     } finally {
       setLoading(false);
@@ -126,12 +147,15 @@ const PlanningExams = () => {
     return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
 
+<<<<<<< HEAD
   // Fonction pour formater la date courte
   const formatShortDate = (dateString) => {
     const options = { day: 'numeric', month: 'long' };
     return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // Fonction pour formater l'heure
   const formatTime = (time) => {
     return time.substring(0, 5);
@@ -149,6 +173,7 @@ const PlanningExams = () => {
     navigate('/accueil');
   };
 
+<<<<<<< HEAD
   // Fonction pour déterminer le statut d'un examen
   const getExamStatus = (dateString) => {
     const examDate = new Date(dateString);
@@ -314,10 +339,27 @@ const PlanningExams = () => {
           </button>
           <button className="logout-btn" onClick={handleReturnToAccueil}>
             <FontAwesomeIcon icon={faSignOutAlt} /> Déconnexion
+=======
+  return (
+    <div className="page-container">
+      <div className="header-actions">
+        <h1>Planning des Exams</h1>
+        <div className="buttons-container">
+          <button className="return-btn" onClick={handleReturnToHome}>
+            Retour à l'accueil
+          </button>
+          <button className="logout-btn" onClick={handleReturnToAccueil}>
+            Déconnexion
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           </button>
         </div>
       </div>
 
+<<<<<<< HEAD
+=======
+      <p>Bienvenue sur la page de planning des examens.</p>
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
       {!submitted ? (
         <form onSubmit={handleSubmit} className="planning-form">
           <div className="form-group">
@@ -345,6 +387,7 @@ const PlanningExams = () => {
         </form>
       ) : (
         <div className="planning-result">
+<<<<<<< HEAD
           <div className="welcome-message">
             <div className="welcome-header">
               <h2>Planning des examens - {getFormattedMajor(major)} - {getFormattedYear(year)}</h2>
@@ -367,6 +410,12 @@ const PlanningExams = () => {
           ) : error ? (
             <div className="error-message">
               <h3><FontAwesomeIcon icon={faExclamationTriangle} /> Erreur</h3>
+=======
+          {loading ? (
+            <p>Chargement du planning des examens...</p>
+          ) : error ? (
+            <div className="error-message">
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               <p>{error}</p>
               <p>Veuillez vérifier que :</p>
               <ul>
@@ -375,6 +424,7 @@ const PlanningExams = () => {
                 <li>Vous êtes bien connecté</li>
               </ul>
             </div>
+<<<<<<< HEAD
           ) : planningExams && planningExams.examens && planningExams.examens.length > 0 ? (
             <>
               <div className="filters-container">
@@ -471,6 +521,33 @@ const PlanningExams = () => {
               <FontAwesomeIcon icon={faBook} />
               <p>Aucun examen planifié pour le moment</p>
             </div>
+=======
+          ) : planningExams && planningExams.examens ? (
+            <table className="exam-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Date</th>
+                  <th>Horaire</th>
+                  <th>Salle</th>
+                  <th>Professeur</th>
+                </tr>
+              </thead>
+              <tbody>
+                {planningExams.examens.map((exam, index) => (
+                  <tr key={index}>
+                    <td>{exam.module}</td>
+                    <td>{formatDate(exam.date)}</td>
+                    <td>{formatTime(exam.debut)} - {formatTime(exam.fin)}</td>
+                    <td>{exam.salle}</td>
+                    <td>{exam.professeur}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>Aucun examen planifié</p>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           )}
         </div>
       )}

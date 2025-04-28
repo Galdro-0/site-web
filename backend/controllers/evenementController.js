@@ -1,5 +1,6 @@
 const Evenement = require('../models/Evenement');
 
+<<<<<<< HEAD
 // Récupérer tous les événements
 exports.getAllEvenements = async (req, res) => {
   try {
@@ -72,10 +73,27 @@ exports.getEvenementsByFiliereAnnee = async (req, res) => {
     res.json(evenements);
   } catch (error) {
     console.error('Erreur lors de la récupération des événements:', error);
+=======
+// @desc    Get evenements by filiere and annee
+// @route   GET /api/evenements/:filiere/:annee
+// @access  Private
+const getEvenements = async (req, res) => {
+  try {
+    const { filiere, annee } = req.params;
+    const evenements = await Evenement.findOne({ filiere, annee });
+    
+    if (!evenements) {
+      return res.status(404).json({ message: 'Aucun événement trouvé' });
+    }
+    
+    res.json(evenements);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(500).json({ message: error.message });
   }
 };
 
+<<<<<<< HEAD
 // Récupérer un événement par ID
 exports.getEvenementById = async (req, res) => {
   try {
@@ -168,3 +186,71 @@ exports.deleteEvenement = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+=======
+// @desc    Update evenements
+// @route   PUT /api/evenements/:filiere/:annee
+// @access  Private
+const updateEvenements = async (req, res) => {
+  try {
+    const { filiere, annee } = req.params;
+    const evenements = await Evenement.findOneAndUpdate(
+      { filiere, annee },
+      req.body,
+      { new: true }
+    );
+    
+    if (!evenements) {
+      return res.status(404).json({ message: 'Aucun événement trouvé' });
+    }
+    
+    res.json(evenements);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Delete evenements
+// @route   DELETE /api/evenements/:filiere/:annee
+// @access  Private
+const deleteEvenements = async (req, res) => {
+  try {
+    const { filiere, annee } = req.params;
+    const evenements = await Evenement.findOneAndDelete({ filiere, annee });
+    
+    if (!evenements) {
+      return res.status(404).json({ message: 'Aucun événement trouvé' });
+    }
+    
+    res.json({ message: 'Événements supprimés avec succès' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Create evenement
+// @route   POST /api/evenements
+// @access  Private
+const createEvenement = async (req, res) => {
+  try {
+    const { filiere, annee, evenements } = req.body;
+    
+    const evenement = new Evenement({
+      filiere,
+      annee,
+      evenements
+    });
+
+    await evenement.save();
+    res.status(201).json(evenement);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  getEvenements,
+  updateEvenements,
+  deleteEvenements,
+  createEvenement
+}; 
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac

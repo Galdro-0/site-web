@@ -1,9 +1,13 @@
 const Formation = require('../models/Formation');
+<<<<<<< HEAD
 const Student = require('../models/Student');
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 
 // Récupérer toutes les formations
 exports.getFormations = async (req, res) => {
   try {
+<<<<<<< HEAD
     const formations = await Formation.find()
       .sort({ date: -1 }); // Tri par date décroissante
 
@@ -33,11 +37,16 @@ exports.getFormations = async (req, res) => {
     });
 
     res.status(200).json(formationsAvecDuree);
+=======
+    const formations = await Formation.find().sort({ date: -1 }); // Tri par date décroissante
+    res.status(200).json(formations);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de la récupération des formations', error: error.message });
   }
 };
 
+<<<<<<< HEAD
 // Récupérer une formation par son ID
 exports.getFormationById = async (req, res) => {
   try {
@@ -367,6 +376,8 @@ exports.desinscriptionFormation = async (req, res) => {
   }
 };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 // Récupérer les dernières formations (limité à un certain nombre)
 exports.getLatestFormations = async (req, res) => {
   try {
@@ -381,6 +392,7 @@ exports.getLatestFormations = async (req, res) => {
 // Créer une nouvelle formation
 exports.createFormation = async (req, res) => {
   try {
+<<<<<<< HEAD
     console.log('Données reçues pour la création de formation:', req.body);
 
     // Vérifier que les dates sont valides
@@ -448,6 +460,12 @@ exports.createFormation = async (req, res) => {
       });
     }
 
+=======
+    const newFormation = new Formation(req.body);
+    const savedFormation = await newFormation.save();
+    res.status(201).json(savedFormation);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(400).json({ message: 'Erreur lors de la création de la formation', error: error.message });
   }
 };
@@ -455,6 +473,7 @@ exports.createFormation = async (req, res) => {
 // Mettre à jour une formation
 exports.updateFormation = async (req, res) => {
   try {
+<<<<<<< HEAD
     console.log('Données reçues pour la mise à jour de formation:', req.body);
 
     // Vérifier que les dates sont valides
@@ -526,6 +545,20 @@ exports.updateFormation = async (req, res) => {
       });
     }
 
+=======
+    const updatedFormation = await Formation.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!updatedFormation) {
+      return res.status(404).json({ message: 'Formation non trouvée' });
+    }
+    
+    res.status(200).json(updatedFormation);
+  } catch (error) {
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(400).json({ message: 'Erreur lors de la mise à jour de la formation', error: error.message });
   }
 };
@@ -534,11 +567,19 @@ exports.updateFormation = async (req, res) => {
 exports.deleteFormation = async (req, res) => {
   try {
     const deletedFormation = await Formation.findByIdAndDelete(req.params.id);
+<<<<<<< HEAD
 
     if (!deletedFormation) {
       return res.status(404).json({ message: 'Formation non trouvée' });
     }
 
+=======
+    
+    if (!deletedFormation) {
+      return res.status(404).json({ message: 'Formation non trouvée' });
+    }
+    
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     res.status(200).json({ message: 'Formation supprimée avec succès' });
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de la suppression de la formation', error: error.message });

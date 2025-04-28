@@ -51,6 +51,7 @@ const studentSchema = new mongoose.Schema({
   timestamps: true
 });
 
+<<<<<<< HEAD
 // Middleware pour normaliser la casse de la filière avant la sauvegarde
 studentSchema.pre('save', function(next) {
   if (this.filiere) {
@@ -60,6 +61,8 @@ studentSchema.pre('save', function(next) {
   next();
 });
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 // Méthode pour comparer les mots de passe
 studentSchema.methods.matchPassword = async function(enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);

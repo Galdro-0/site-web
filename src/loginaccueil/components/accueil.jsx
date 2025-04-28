@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import {
   FileText, Calendar, Clock, Facebook, Instagram, Twitter, Linkedin,
   Bell, BookOpen, AlarmClock, Info, LogIn, LogOut, UserCog,
   GraduationCap, Users, Timer, Award, ArrowRight, User,
   ChevronRight, Play, School, Building, BookOpen as Book, Lightbulb
 } from "lucide-react";
+=======
+import { FileText, Calendar, Clock, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +22,7 @@ import directeurImage from "../assets/diricteur.jpg";
 
 const Accueil = () => {
   const [showLogin, setShowLogin] = useState(false);
+<<<<<<< HEAD
   const [showAbout, setShowAbout] = useState(false); // Nouvel état pour la modal À propos
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formations, setFormations] = useState([]);
@@ -34,6 +39,12 @@ const Accueil = () => {
     modules: 0
   });
   const [loadingStats, setLoadingStats] = useState(false);
+=======
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [formations, setFormations] = useState([]);
+  const [loadingFormations, setLoadingFormations] = useState(false);
+  const [errorFormations, setErrorFormations] = useState(null);
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const navigate = useNavigate();
 
   // Vérifier si l'utilisateur est déjà connecté
@@ -46,6 +57,7 @@ const Accueil = () => {
     }
   }, [navigate]);
 
+<<<<<<< HEAD
   // Effet pour détecter le défilement et afficher/masquer le bouton "Retour en haut"
   useEffect(() => {
     const handleScroll = () => {
@@ -72,6 +84,8 @@ const Accueil = () => {
     });
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   // Récupérer les formations depuis l'API
   useEffect(() => {
     const fetchFormations = async () => {
@@ -104,6 +118,7 @@ const Accueil = () => {
     fetchFormations();
   }, []);
 
+<<<<<<< HEAD
   // Récupérer les statistiques depuis l'API
   useEffect(() => {
     const fetchStatistics = async () => {
@@ -165,6 +180,8 @@ const Accueil = () => {
     fetchFilieres();
   }, [showAbout]); // Déclencher l'effet lorsque showAbout change
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const handleLoginSuccess = (userData) => {
     setIsLoggedIn(true);
     setShowLogin(false);
@@ -178,6 +195,7 @@ const Accueil = () => {
     setIsLoggedIn(false);
   };
 
+<<<<<<< HEAD
   // Définition des animations CSS
   const animationStyles = `
     @keyframes fadeIn {
@@ -219,11 +237,15 @@ const Accueil = () => {
   }, []);
 
   // Styles JSX améliorés
+=======
+  // Styles JSX
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const styles = {
     nav: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+<<<<<<< HEAD
       padding: '12px 40px',
       boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
       position: 'sticky',
@@ -239,11 +261,19 @@ const Accueil = () => {
       height: '80px',
       marginRight: '10px',
       transition: 'transform 0.3s ease',
+=======
+      padding: '10px',
+    },
+    logo: {
+      height: '100px',
+      marginRight: '6px',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     },
     navList: {
       listStyle: 'none',
       display: 'flex',
       alignItems: 'center',
+<<<<<<< HEAD
       gap: '10px',
     },
     navItem: {
@@ -438,6 +468,65 @@ const Accueil = () => {
     servicesSection: {
       padding: '4rem 0',
       backgroundColor: '#f9fafb',
+=======
+    },
+    navItem: {
+      margin: '0 15px',
+    },
+    navLink: {
+      color: 'black',
+      textDecoration: 'none',
+    },
+    loginButton: {
+      backgroundColor: 'blue',
+      color: 'white',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+    },
+    closeButton: {
+        position: 'absolute', // Position absolue par rapport au conteneur parent
+        top: '10px', // Position en haut
+        right: '10px', // Position à droite
+        backgroundColor: 'red', // Couleur de fond
+        color: 'white', // Couleur du texte
+        border: 'none', // Pas de bordure
+        borderRadius: '5px', // Coins arrondis
+        padding: '5px 10px', // Espacement interne
+        cursor: 'pointer', // Curseur en forme de main
+        zIndex: 1001, // Assure que le bouton est au-dessus du formulaire
+      },
+    heroSection: {
+      position: 'relative',
+    },
+    heroText: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      right: '0',
+      bottom: '0',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      color: 'white',
+    },
+    heroImage: {
+      width: '100%',
+      height: '384px',
+      objectFit: 'cover',
+    },
+    contactButton: {
+      backgroundColor: 'blue',
+      color: 'white',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+    },
+    servicesSection: {
+      padding: '2rem 0',
+      backgroundColor: '#f9f9f9',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     },
     servicesGrid: {
       display: 'grid',
@@ -447,6 +536,7 @@ const Accueil = () => {
     },
     serviceCard: {
       backgroundColor: 'white',
+<<<<<<< HEAD
       padding: '2.5rem',
       borderRadius: '16px',
       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)',
@@ -478,10 +568,29 @@ const Accueil = () => {
       backgroundColor: '#f8fafc',
       position: 'relative',
       overflow: 'hidden',
+=======
+      padding: '1.5rem',
+      borderRadius: '8px',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      textAlign: 'center',
+    },
+    serviceButton: {
+      backgroundColor: '#007bff',
+      color: 'white',
+      border: 'none',
+      padding: '0.5rem 1rem',
+      borderRadius: '5px',
+      cursor: 'pointer',
+    },
+    formationsSection: {
+      padding: '2rem 0',
+      backgroundColor: '#ffffff',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     },
     formationsContainer: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
+<<<<<<< HEAD
       gap: '2.5rem',
       padding: '0 10%',
       position: 'relative',
@@ -585,10 +694,28 @@ const Accueil = () => {
       padding: '3rem 2rem 2rem',
       position: 'relative',
       boxShadow: '0 -10px 40px rgba(0, 0, 0, 0.1)',
+=======
+      gap: '2rem',
+      padding: '0 10%',
+    },
+    formationCard: {
+      textAlign: 'center',
+    },
+    directeurSection: {
+      padding: '3rem 2.5rem',
+      textAlign: 'center',
+    },
+    footer: {
+      backgroundColor: '#2563eb',
+      color: 'white',
+      textAlign: 'center',
+      padding: '1.5rem',
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     },
     socialLinks: {
       display: 'flex',
       justifyContent: 'center',
+<<<<<<< HEAD
       gap: '1.5rem',
       marginTop: '1rem',
     },
@@ -625,12 +752,32 @@ const Accueil = () => {
       opacity: 0,
       transform: 'translateY(20px)',
     },
+=======
+      gap: '1rem',
+      marginTop: '0.5rem',
+    },
+    loginOverlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backdropFilter: 'blur(5px)',
+        zIndex: 1000,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   };
 
   return (
     <div>
     {/* Navigation */}
     <nav style={styles.nav}>
+<<<<<<< HEAD
       <div style={{
         display: 'flex',
         alignItems: 'center'
@@ -849,6 +996,35 @@ const Accueil = () => {
           Admin
         </button>
       </div>
+=======
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={logo} alt="Logo" style={styles.logo} />
+      </div>
+      <ul style={styles.navList}>
+        <li style={styles.navItem}><a href="#" style={styles.navLink} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Actualité</a></li>
+        <li style={styles.navItem}><a href="#" style={styles.navLink} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Examens</a></li>
+        <li style={styles.navItem}><a href="#" style={styles.navLink} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Emplois du temps</a></li>
+        <li style={styles.navItem}><a href="#" style={styles.navLink} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Événements</a></li>
+        <li style={styles.navItem}><a href="#" style={styles.navLink} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>About</a></li>
+      </ul>
+
+      {/* Bouton de login/logout */}
+      {!isLoggedIn ? (
+        <button
+          style={styles.loginButton}
+          onClick={() => setShowLogin(true)}
+        >
+          Login
+        </button>
+      ) : (
+        <button
+          style={styles.loginButton}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      )}
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     </nav>
 
     {/* Modal de login */}
@@ -859,6 +1035,7 @@ const Accueil = () => {
       />
     )}
 
+<<<<<<< HEAD
     {/* Modal À propos */}
     {showAbout && (
       <div
@@ -1501,10 +1678,25 @@ const Accueil = () => {
           </div>
         </div>
       </div>
+=======
+    {/* Hero Section */}
+    <section style={styles.heroSection}>
+      <div style={styles.heroText}>
+        <h1 style={{ fontSize: '2rem', fontWeight: 'bold', color:"white" }}>Bienvenue sur le site officiel de l'ENSA Béni Mellal !</h1>
+        <button
+          style={styles.contactButton}
+          onClick={() => setShowLogin(true)}
+        >
+          Contactez-nous
+        </button>
+      </div>
+      <img src={heroImage} alt="Hero" style={styles.heroImage} />
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     </section>
 
       {/* Services Section */}
       <section style={styles.servicesSection}>
+<<<<<<< HEAD
         <h2 style={{
           textAlign: 'center',
           fontSize: '2rem',
@@ -1639,6 +1831,32 @@ const Accueil = () => {
                 }}
               >
                 DÉCOUVRIR →
+=======
+        <div style={styles.servicesGrid}>
+          {[{
+            icon: <FileText className="w-6 h-6" />,
+            title: "Examens",
+            description: "Au-delà de l'épreuve : un pas vers votre carrière"
+          }, {
+            icon: <Calendar className="w-6 h-6" />,
+            title: "Événements",
+            description: "Au cœur de l'innovation et du savoir : les événements de l'ENSA Beni Mellal"
+          }, {
+            icon: <Clock className="w-6 h-6" />,
+            title: "Emplois du temps",
+            description: "Planifiez votre semaine pour un maximum de productivité"
+          }].map((service, index) => (
+            <div key={index} style={styles.serviceCard}>
+              <h2 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                {service.icon} {service.title}
+              </h2>
+              <p style={{ color: '#666', marginBottom: '1.5rem' }}>{service.description}</p>
+              <button
+                style={styles.serviceButton}
+                onClick={() => setShowLogin(true)}
+              >
+                GET STARTED →
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
               </button>
             </div>
           ))}
@@ -1647,6 +1865,7 @@ const Accueil = () => {
 
       {/* Formations */}
       <section style={styles.formationsSection}>
+<<<<<<< HEAD
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span style={{
             display: 'inline-block',
@@ -1692,6 +1911,9 @@ const Accueil = () => {
             Découvrez nos programmes d'ingénierie de pointe conçus pour former les leaders de demain
           </p>
         </div>
+=======
+        <h2 style={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Dernières formations</h2>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         <div style={styles.formationsContainer}>
           {loadingFormations ? (
             <div style={{ textAlign: 'center', gridColumn: 'span 3' }}>
@@ -1706,6 +1928,7 @@ const Accueil = () => {
               <div style={styles.formationsContainer}>
                 {[{
                   img: formation1,
+<<<<<<< HEAD
                   title: "Génie Informatique",
                   description: "Formation d'excellence en développement logiciel, intelligence artificielle et sécurité informatique",
                   badge: "IACS",
@@ -1801,11 +2024,35 @@ const Accueil = () => {
                         <ArrowRight size={16} />
                       </button>
                     </div>
+=======
+                  title: "User Experience Design",
+                  description: "Au-delà de l'épreuve : un pas vers votre carrière"
+                }, {
+                  img: formation2,
+                  title: "Computer Science",
+                  description: "Au cœur de l'innovation et du savoir : les événements de l'ENSA Beni Mellal"
+                }, {
+                  img: formation3,
+                  title: "Business Management",
+                  description: "Votre guide vers une semaine productive"
+                }].map((formation, index) => (
+                  <div key={index} style={styles.formationCard}>
+                    <img src={formation.img} alt={formation.title} style={{ width: '100%', height: 'auto' }} />
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '1rem 0' }}>{formation.title}</h3>
+                    <p style={{ color: '#666' }}>{formation.description}</p>
+                    <button
+                      style={styles.serviceButton}
+                      onClick={() => setShowLogin(true)}
+                    >
+                      S'INSCRIRE →
+                    </button>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
                   </div>
                 ))}
               </div>
             </div>
           ) : formations.length > 0 ? (
+<<<<<<< HEAD
             formations.map((formation, index) => {
               // Déterminer la couleur du badge en fonction de la filière
               let badgeColor = "#2563eb";
@@ -1914,6 +2161,42 @@ const Accueil = () => {
                 </div>
               );
             })
+=======
+            formations.map((formation, index) => (
+              <div key={formation._id || index} style={styles.formationCard}>
+                <img
+                  src={formation.imageUrl}
+                  alt={formation.title}
+                  style={{ width: '100%', height: 'auto' }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    // Utiliser une image par défaut en cas d'erreur
+                    if (index === 0) e.target.src = formation1;
+                    else if (index === 1) e.target.src = formation2;
+                    else e.target.src = formation3;
+                  }}
+                />
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '1rem 0' }}>{formation.title}</h3>
+                <p style={{ color: '#666' }}>{formation.description}</p>
+                {formation.instructor && (
+                  <p style={{ color: '#666', fontStyle: 'italic', marginTop: '0.5rem' }}>
+                    Par: {formation.instructor}
+                  </p>
+                )}
+                {formation.duration && (
+                  <p style={{ color: '#666', marginTop: '0.5rem' }}>
+                    Durée: {formation.duration}
+                  </p>
+                )}
+                <button
+                  style={styles.serviceButton}
+                  onClick={() => setShowLogin(true)}
+                >
+                  S'INSCRIRE →
+                </button>
+              </div>
+            ))
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
           ) : (
             // Si aucune formation n'est disponible, afficher les formations par défaut
             [{
@@ -1947,6 +2230,7 @@ const Accueil = () => {
 
       {/* Message du directeur */}
       <section style={styles.directeurSection}>
+<<<<<<< HEAD
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <span style={{
             display: 'inline-block',
@@ -2148,11 +2432,21 @@ const Accueil = () => {
               </div>
             </div>
           </div>
+=======
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Mot du directeur</h2>
+        <div style={{ display: 'flex', alignItems: 'flex-start', width: '70%', margin: '0 auto', textAlign: 'center' }}>
+          <img src={directeurImage} alt="Directeur" style={{ width: '199px', height: '199px', borderRadius: '50%', marginRight: '1.5rem' }} />
+          <p style={{ color: '#666', marginTop: '1rem' }}>
+            "L'ENSA Béni Mellal est un établissement public de l'Université Sultan Moulay Slimane (USMS). Elle forme des ingénieurs capables de s'adapter aux évolutions technologiques et aux besoins du marché."
+            <br /><strong>PR. BELAID BOUIKHALENE, Directeur de L'ENSABM</strong>
+          </p>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         </div>
       </section>
 
       {/* Footer */}
       <footer style={styles.footer}>
+<<<<<<< HEAD
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -2439,6 +2733,32 @@ const Accueil = () => {
           <path d="m18 15-6-6-6 6"/>
         </svg>
       </button>
+=======
+        <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.3)', width: '100%', marginBottom: '1rem' }}></div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '0.875rem' }}>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>About</a>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Contact us</a>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>FAQs</a>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Terms and conditions</a>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }} onClick={(e) => { e.preventDefault(); setShowLogin(true); }}>Privacy</a>
+        </div>
+        <div style={styles.socialLinks}>
+          <a href="#" onClick={(e) => { e.preventDefault(); setShowLogin(true); }} style={{ color: 'white' }}>
+            <Facebook className="w-6 h-6" />
+          </a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setShowLogin(true); }} style={{ color: 'white' }}>
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setShowLogin(true); }} style={{ color: 'white' }}>
+            <Twitter className="w-6 h-6" />
+          </a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setShowLogin(true); }} style={{ color: 'white' }}>
+            <Linkedin className="w-6 h-6" />
+          </a>
+        </div>
+        <p style={{ fontSize: '0.875rem', opacity: '0.8', marginTop: '1rem' }}>Copyright © 2025 - ENSABM</p>
+      </footer>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
     </div>
   );
 };

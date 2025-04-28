@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { FaArrowLeft } from 'react-icons/fa';
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
 import './Login.css';
 
 const AdminLogin = () => {
@@ -10,11 +13,14 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+<<<<<<< HEAD
   // Fonction pour retourner à l'accueil
   const handleReturnToHome = () => {
     navigate('/accueil');
   };
 
+=======
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -58,6 +64,7 @@ const AdminLogin = () => {
   return (
     <div className="login-container">
       <div className="login-box">
+<<<<<<< HEAD
         <div className="login-header">
           <button
             className="return-button"
@@ -68,6 +75,9 @@ const AdminLogin = () => {
           </button>
           <h2>Administration - Connexion</h2>
         </div>
+=======
+        <h2>Administration - Connexion</h2>
+>>>>>>> 62aa32c3cfb0efa3cdb9a2c4a6452896b276b6ac
         {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
